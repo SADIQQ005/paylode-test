@@ -5,22 +5,21 @@ export default function Movie() {
   const params = useParams();
   const [movie, setMovie] = useState({});
 
-  const getMovieInfo = async () => {
-    try {
-      const res = await fetch(
-        `https://imdb-api.com/en/API/Title/${process.env.REACT_APP_API_KEY}/${params.id}`
-      );
-      const data = await res.json();
-      setMovie(data);
-    } catch (err) {
-      console.log(err);
-    }
-    console.log(movie);
-  };
-
   useEffect(() => {
+    const getMovieInfo = async () => {
+      try {
+        const res = await fetch(
+          `https://imdb-api.com/en/API/Title/${process.env.REACT_APP_API_KEY}/${params.id}`
+        );
+        const data = await res.json();
+        setMovie(data);
+      } catch (err) {
+        console.log(err);
+      }
+      console.log(movie);
+    };
     getMovieInfo();
-  }, [movie]);
+  }, []);
 
   if (movie === null) {
     return <div className="animate-pulse bg-[#121212] h-[22rem]"></div>;
