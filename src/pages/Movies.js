@@ -25,7 +25,7 @@ export default function Movies() {
 
   useEffect(() => {
     getMovies();
-  }, [topMovies]);
+  }, [getMovies]);
 
   return (
     <div>

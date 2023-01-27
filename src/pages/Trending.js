@@ -25,7 +25,7 @@ export default function Trending() {
 
   useEffect(() => {
     getData();
-  }, [movies]);
+  }, [getData]);
 
   return <Popular error={error} movies={movies} />;
 }
