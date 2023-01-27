@@ -26,7 +26,7 @@ export default function Series() {
 
   useEffect(() => {
     getSeries();
-  }, [getSeries]);
+  }, [series]);
 
   return (
     <div>

@@ -3,13 +3,12 @@ import { useParams } from "react-router-dom";
 
 export default function Movie() {
   const params = useParams();
-  const _id = params.id;
   const [movie, setMovie] = useState({});
 
   const getMovieInfo = async () => {
     try {
       const res = await fetch(
-        `https://imdb-api.com/en/API/Title/${process.env.REACT_APP_API_KEY}/${_id}`
+        `https://imdb-api.com/en/API/Title/${process.env.REACT_APP_API_KEY}/${params.id}`
       );
       const data = await res.json();
       setMovie(data);
@@ -21,7 +20,7 @@ export default function Movie() {
 
   useEffect(() => {
     getMovieInfo();
-  }, [_id]);
+  }, [params.id]);
 
   if (movie === null) {
     return <div className="animate-pulse bg-[#121212] h-[22rem]"></div>;
