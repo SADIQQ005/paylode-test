@@ -19,7 +19,7 @@ export default function Movie() {
       console.log(movie);
     };
     getMovieInfo();
-  }, []);
+  }, [params.id]);
 
   if (movie === null) {
     return <div className="animate-pulse bg-[#121212] h-[22rem]"></div>;
