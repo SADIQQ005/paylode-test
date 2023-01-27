@@ -7,7 +7,7 @@ export default function TrendingCard({ movies, error }) {
   }
   return (
     <>
-      <div className="grid grid-cols-4 gap-6 w-[80%] mx-auto py-7">
+      <div className="grid md:grid-cols-3 lg:grid-cols-4 gap-6 w-[80%] mx-auto py-7">
         {movies.length === 0
           ? [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((loading, index) => (
               <div

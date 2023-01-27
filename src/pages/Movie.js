@@ -13,16 +13,19 @@ export default function Movie() {
       );
       const data = await res.json();
       setMovie(data);
-      console.log(data)
     } catch (err) {
       console.log(err);
     }
-    console.log(movie)
+    console.log(movie);
   };
 
   useEffect(() => {
     getMovieInfo();
   }, [_id]);
+
+  if (movie === null) {
+    return <div className="animate-pulse bg-[#121212] h-[22rem]"></div>;
+  }
 
   return (
     <div className="w-[80%] mx-auto">
@@ -33,7 +36,9 @@ export default function Movie() {
         <div className="text-white mt-10">
           <h2 className="text-2xl font-bold my-7">{movie.title}</h2>
           <p className="mb-5 text-gray-300">{movie.plot}</p>
-          <p className="mb-3 font-bold text-gray-300">Release Date: {movie.releaseDate}</p>
+          <p className="mb-3 font-bold text-gray-300">
+            Release Date: {movie.releaseDate}
+          </p>
           <button className="bg-green-600 rounded-lg px-2 py-1 my-3 capitalize text-lg text-black">
             play trailer
           </button>
@@ -42,7 +47,7 @@ export default function Movie() {
       <h2 className="font-bold text-3xl text-white capitalize my-5">casts</h2>
 
       <div className="grid grid-cols-7 gap-3">
-        {movie.actorList.map((cast) => (
+        {/* {movie.actorList.map((cast) => (
         <div key={cast.id} className="my-5 text-center">
           <img
             className="w-32 h-32 rounded-full"
@@ -51,7 +56,7 @@ export default function Movie() {
           />
           <p className="text-white text-lg py-2">{cast.name}</p>
         </div>
-        ))}
+        ))} */}
       </div>
     </div>
   );
