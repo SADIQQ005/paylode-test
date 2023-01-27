@@ -20,7 +20,7 @@ export default function Movie() {
 
   useEffect(() => {
     getMovieInfo();
-  }, [params.id]);
+  }, [movie]);
 
   if (movie === null) {
     return <div className="animate-pulse bg-[#121212] h-[22rem]"></div>;
